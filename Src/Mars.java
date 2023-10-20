@@ -1,32 +1,16 @@
 
 import java.util.Arrays;
+import java.util.stream.IntStream;
 
 public class Mars {
-        public static void main(String[] args) {
-            int [] firstArray = new int [100];
-            String tmp;
-            int count=0;
-
-            for (int i=0; i < firstArray.length; i++){
-                firstArray [i] = i+1;
-                tmp = Integer.toString(firstArray[i]);
-                if (tmp.contains("9") || tmp.contains("4")) {
-                    count++;
-                }
-            }
-            int [] secondArray = new int [firstArray.length-count];
-            for (int i=0, j=0; i < firstArray.length; i++){
-                tmp = Integer.toString(firstArray[i]);
-                if (tmp.contains("9") || tmp.contains("4")) {
-                }
-                else {
-                    secondArray[j] = firstArray[i];
-                    j++;
-                }
-            }
-            firstArray=secondArray;
-            for (int a : firstArray) {
-                System.out.println(a);
-            }
+    public static void main(String[] args) {
+        int count = 0, value = 0;
+        while (count < 100) {
+            String s = String.valueOf(++value);
+            if ((s.contains("4") || s.contains("9"))) continue;
+            System.out.println(value);
+            count++;
         }
+        System.out.println("TOTAL: " + count);
     }
+}
